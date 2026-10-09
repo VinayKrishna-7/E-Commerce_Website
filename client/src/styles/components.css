@@ -497,6 +497,10 @@
   margin-bottom: var(--space-4);
 }
 
+.hero-accent-text {
+  color: var(--accent-primary);
+}
+
 .hero-desc {
   font-size: var(--text-md);
   color: var(--text-secondary);

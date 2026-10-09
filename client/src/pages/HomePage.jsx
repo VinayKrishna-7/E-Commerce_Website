@@ -70,13 +70,13 @@ const HomePage = () => {
             <div>
               <div className="hero-eyebrow">
                 <Sparkles size={14} />
-                <span>Autumn Edition 2026</span>
+                <span>NEW ARRIVALS • 2026</span>
               </div>
               <h1 className="hero-title">
-                Honest design for everyday rituals.
+                Effortless style for <span className="hero-accent-text">modern living.</span>
               </h1>
               <p className="hero-desc">
-                Thoughtfully engineered tech accessories, utilitarian apparel, and timeless living goods crafted for durability and restrained elegance.
+                Discover curated collections of premium audio, elevated apparel, and contemporary living essentials designed for comfort and crafted to last.
               </p>
               <div className="hero-cta-group">
                 <Link to="/shop">
