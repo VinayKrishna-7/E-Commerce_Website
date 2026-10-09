@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import Button from './Button';
+import {
+  ArrowRight,
+  CheckCircle2,
+  MapPin,
+  Mail,
+  ShieldCheck,
+  Clock,
+  Sparkles,
+  ArrowUpRight,
+} from 'lucide-react';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -16,101 +24,220 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer">
+    <footer className="footer-stylish">
       <div className="container">
-        <div className="footer-grid">
-          {/* Brand & Editorial Mission */}
+        {/* Top Tier: Editorial Headline & Modern Glassmorphic Newsletter Box */}
+        <div className="footer-top-marquee">
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', marginBottom: 'var(--space-4)' }}>
-              <span className="brand-mark" style={{ width: 26, height: 26, fontSize: 14 }}>S</span>
-              <span style={{ fontSize: 'var(--text-lg)', fontWeight: 700 }}>ShopEase</span>
+            <div className="footer-tagline-badge">
+              <span className="footer-pulse-dot" />
+              <span>The ShopEase Archive & Journal</span>
             </div>
-            <p style={{ maxWidth: '320px', fontSize: 'var(--text-sm)', lineHeight: 1.6, marginBottom: 'var(--space-6)' }}>
-              Curated everyday essentials, minimalist electronics, tactile homewares, and utilitarian apparel crafted for durability, simplicity, and longevity.
+            <h2 className="footer-hero-headline">
+              Objects of permanence for everyday rituals.
+            </h2>
+            <p className="footer-hero-desc">
+              We design and curate utilitarian apparel, tactile homewares, and minimalist tech accessories crafted with mindful proportions and ethical provenance.
             </p>
-            <div style={{ display: 'flex', gap: 'var(--space-3)' }}>
-              <span className="badge badge-category">Est. 2026</span>
-              <span className="badge badge-category">Pure Craft</span>
-            </div>
           </div>
 
-          {/* Catalog Links */}
-          <div>
-            <h4 className="footer-heading">Shop Catalog</h4>
-            <div className="footer-links">
-              <Link to="/shop" className="footer-link">All Products</Link>
-              <Link to="/shop?category=Audio%20%26%20Electronics" className="footer-link">Audio & Tech</Link>
-              <Link to="/shop?category=Apparel%20%26%20Footwear" className="footer-link">Apparel & Footwear</Link>
-              <Link to="/shop?category=Home%20%26%20Living" className="footer-link">Home & Living</Link>
-              <Link to="/shop?category=Carry%20%26%20Accessories" className="footer-link">Carry & Accessories</Link>
+          <div className="footer-subscribe-box">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: 'var(--space-2)' }}>
+              <Sparkles size={16} style={{ color: '#9DBBA0' }} />
+              <span style={{ fontSize: 'var(--text-sm)', fontWeight: 600, color: '#FFFFFF' }}>
+                Join The Private Dispatch
+              </span>
             </div>
-          </div>
-
-          {/* Customer Care */}
-          <div>
-            <h4 className="footer-heading">Customer Care</h4>
-            <div className="footer-links">
-              <Link to="/orders" className="footer-link">Order Status</Link>
-              <Link to="/cart" className="footer-link">Shopping Bag</Link>
-              <Link to="/wishlist" className="footer-link">Saved Items</Link>
-              <span className="footer-link" style={{ cursor: 'default' }}>Complimentary Shipping</span>
-              <span className="footer-link" style={{ cursor: 'default' }}>30-Day Hassle-Free Returns</span>
-            </div>
-          </div>
-
-          {/* Newsletter Form */}
-          <div>
-            <h4 className="footer-heading">The Dispatch</h4>
-            <p style={{ fontSize: 'var(--text-xs)', marginBottom: 'var(--space-3)' }}>
-              Receive seasonal dispatches, product launches, and editorial design notes. Never spam.
+            <p style={{ fontSize: 'var(--text-xs)', color: '#8C9488', marginBottom: 'var(--space-4)' }}>
+              Early access to seasonal drops, artisan archives, and private invitations.
             </p>
+
             {subscribed ? (
               <div
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   gap: 'var(--space-2)',
-                  color: 'var(--status-success)',
+                  color: '#78BD8F',
                   fontSize: 'var(--text-xs)',
                   fontWeight: 600,
                   padding: 'var(--space-3)',
-                  backgroundColor: 'var(--status-success-bg)',
+                  backgroundColor: 'rgba(120, 189, 143, 0.1)',
                   borderRadius: 'var(--radius-sm)',
+                  border: '1px solid rgba(120, 189, 143, 0.25)',
                 }}
               >
                 <CheckCircle2 size={16} />
-                <span>Thank you. You are on the subscriber list.</span>
+                <span>You are on the private dispatch list. Thank you.</span>
               </div>
             ) : (
-              <form onSubmit={handleNewsletterSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  required
-                  className="form-input"
-                  style={{ minHeight: '38px', fontSize: 'var(--text-xs)' }}
-                />
-                <Button type="submit" variant="primary" size="sm" icon={ArrowRight}>
-                  Subscribe
-                </Button>
+              <form onSubmit={handleNewsletterSubmit}>
+                <div className="footer-input-group">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email address..."
+                    required
+                    className="footer-input"
+                  />
+                  <button
+                    type="submit"
+                    className="footer-submit-btn"
+                    aria-label="Subscribe to newsletter"
+                  >
+                    <ArrowRight size={17} />
+                  </button>
+                </div>
+
+                <div className="footer-micro-perks">
+                  <span>✓ 10% off first order</span>
+                  <span>•</span>
+                  <span>✓ No spam guarantee</span>
+                  <span>•</span>
+                  <span>✓ Instant unsubscribe</span>
+                </div>
               </form>
             )}
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="footer-bottom">
+        {/* Middle Tier: 4 Editorial Link Columns */}
+        <div className="footer-columns-grid">
+          {/* Column 1: Curated Collections */}
           <div>
-            © {new Date().getFullYear()} ShopEase Goods Inc. All rights reserved.
+            <h4 className="footer-col-title">Curated Catalog</h4>
+            <div className="footer-col-links">
+              <Link to="/shop" className="footer-nav-link">
+                <span>All Products</span>
+              </Link>
+              <Link to="/shop?category=Audio%20%26%20Electronics" className="footer-nav-link">
+                <span>Audio & Tech</span>
+              </Link>
+              <Link to="/shop?category=Apparel%20%26%20Footwear" className="footer-nav-link">
+                <span>Apparel & Footwear</span>
+              </Link>
+              <Link to="/shop?category=Home%20%26%20Living" className="footer-nav-link">
+                <span>Studio Living & Ceramics</span>
+              </Link>
+              <Link to="/shop?category=Carry%20%26%20Accessories" className="footer-nav-link">
+                <span>Leather & Carry</span>
+              </Link>
+            </div>
           </div>
-          <div style={{ display: 'flex', gap: 'var(--space-4)' }}>
-            <span style={{ cursor: 'default' }}>Ethical Production</span>
+
+          {/* Column 2: Client Services */}
+          <div>
+            <h4 className="footer-col-title">Client Services</h4>
+            <div className="footer-col-links">
+              <Link to="/orders" className="footer-nav-link">
+                <span>Track Your Shipment</span>
+              </Link>
+              <Link to="/cart" className="footer-nav-link">
+                <span>Shopping Bag</span>
+              </Link>
+              <Link to="/wishlist" className="footer-nav-link">
+                <span>Saved Wishlist</span>
+              </Link>
+              <Link to="/profile" className="footer-nav-link">
+                <span>Customer Account</span>
+              </Link>
+              <span className="footer-nav-link" style={{ cursor: 'default' }}>
+                <span>Complimentary Delivery &gt; ₹999</span>
+              </span>
+              <span className="footer-nav-link" style={{ cursor: 'default' }}>
+                <span>30-Day Hassle-Free Exchange</span>
+              </span>
+            </div>
+          </div>
+
+          {/* Column 3: The Workshop & Ethics */}
+          <div>
+            <h4 className="footer-col-title">The Workshop</h4>
+            <div className="footer-col-links">
+              <span className="footer-nav-link" style={{ cursor: 'default' }}>
+                <span>Ethical Craft Manifesto</span>
+              </span>
+              <span className="footer-nav-link" style={{ cursor: 'default' }}>
+                <span>Plastic-Free Packing</span>
+              </span>
+              <span className="footer-nav-link" style={{ cursor: 'default' }}>
+                <span>Traceable Sourcing</span>
+              </span>
+              <span className="footer-nav-link" style={{ cursor: 'default' }}>
+                <span>Care & Repair Archive</span>
+              </span>
+              <span className="footer-nav-link" style={{ cursor: 'default' }}>
+                <span>Direct Artisan Partners</span>
+              </span>
+            </div>
+          </div>
+
+          {/* Column 4: Studio Presence & Contact */}
+          <div>
+            <h4 className="footer-col-title">Flagship Presence</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+              <div className="footer-contact-item">
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '6px' }}>
+                  <MapPin size={15} style={{ color: '#9DBBA0', flexShrink: 0, marginTop: '2px' }} />
+                  <span>
+                    100ft Road, Indiranagar<br />
+                    Bengaluru, Karnataka 560038
+                  </span>
+                </div>
+              </div>
+
+              <div className="footer-contact-item">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <Clock size={15} style={{ color: '#9DBBA0', flexShrink: 0 }} />
+                  <span>Mon – Sat: 10:00 – 20:00 IST</span>
+                </div>
+              </div>
+
+              <div className="footer-contact-item">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <Mail size={15} style={{ color: '#9DBBA0', flexShrink: 0 }} />
+                  <span>concierge@shopease.in</span>
+                </div>
+              </div>
+
+              <div>
+                <span className="footer-live-badge">
+                  <span className="footer-pulse-dot" style={{ width: 6, height: 6 }} />
+                  <span>Studio Flagship Open</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Giant Architectural Typographic Watermark */}
+        <div className="footer-watermark-wrap" aria-hidden="true">
+          <span className="footer-watermark-text">S H O P E A S E</span>
+        </div>
+
+        {/* Bottom Tier: Utility & Copyright */}
+        <div className="footer-bottom-bar">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', flexWrap: 'wrap' }}>
+            <span>© {new Date().getFullYear()} ShopEase Goods Inc. All rights reserved.</span>
             <span>•</span>
-            <span style={{ cursor: 'default' }}>Zero Waste Packaging</span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+              <ShieldCheck size={14} style={{ color: '#78BD8F' }} />
+              <span>PCI-DSS 256-bit Encrypted Checkout</span>
+            </span>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', flexWrap: 'wrap' }}>
+            <span className="footer-currency-pill">
+              <span>🇮🇳 INR (₹)</span>
+              <span style={{ opacity: 0.4 }}>|</span>
+              <span>India</span>
+            </span>
+            <span>Zero Waste Certified</span>
             <span>•</span>
-            <span style={{ cursor: 'default' }}>Privacy & Terms</span>
+            <span>Privacy Policy</span>
+            <span>•</span>
+            <span>Terms of Service</span>
           </div>
         </div>
       </div>
