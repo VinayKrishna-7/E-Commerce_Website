@@ -20,7 +20,7 @@ import ProductGrid from '../components/ProductGrid';
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
-  const { addToCart, undoAddToCart } = useCart();
+  const { items, addToCart, undoAddToCart } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
 
   const [product, setProduct] = useState(null);
@@ -28,6 +28,7 @@ const ProductDetailsPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [lastAddedQty, setLastAddedQty] = useState(1);
   const [adding, setAdding] = useState(false);
   const [added, setAdded] = useState(false);
   const [undoing, setUndoing] = useState(false);
@@ -98,12 +99,17 @@ const ProductDetailsPage = () => {
   const isOutOfStock = product.stock <= 0;
   const isLowStock = product.stock > 0 && product.stock <= 5;
 
+  const inBagItem = items?.find((i) => (i.product?.id || i.productId) === product.id);
+  const inBagQty = inBagItem ? inBagItem.quantity : 0;
+
   const handleAddToCart = async () => {
     if (isOutOfStock || adding) return;
     setAdding(true);
-    const ok = await addToCart(product, quantity);
+    const qtyToAdd = quantity;
+    const ok = await addToCart(product, qtyToAdd);
     setAdding(false);
     if (ok) {
+      setLastAddedQty(qtyToAdd);
       setAdded(true);
       if (addedTimerRef.current) clearTimeout(addedTimerRef.current);
       addedTimerRef.current = setTimeout(() => {
@@ -116,7 +122,7 @@ const ProductDetailsPage = () => {
     if (undoing) return;
     if (addedTimerRef.current) clearTimeout(addedTimerRef.current);
     setUndoing(true);
-    await undoAddToCart(product.id, quantity);
+    await undoAddToCart(product.id, lastAddedQty);
     setUndoing(false);
     setAdded(false);
   };
@@ -179,13 +185,21 @@ const ProductDetailsPage = () => {
           </div>
 
           {/* Stock status indicator */}
-          <div style={{ marginBottom: 'var(--space-5)' }}>
+          <div style={{ marginBottom: 'var(--space-5)', display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
             {isOutOfStock ? (
               <span className="badge badge-error">Out of stock</span>
             ) : isLowStock ? (
               <span className="badge badge-warning">Low Stock — Only {product.stock} units remain</span>
             ) : (
               <span className="badge badge-success">In Stock ({product.stock} available)</span>
+            )}
+            {inBagQty > 0 && (
+              <span
+                className="badge badge-category"
+                style={{ backgroundColor: 'var(--accent-subtle)', color: 'var(--accent-primary)', fontWeight: 600 }}
+              >
+                {inBagQty} in bag
+              </span>
             )}
           </div>
 
@@ -196,7 +210,13 @@ const ProductDetailsPage = () => {
             {!isOutOfStock && (
               <QuantitySelector
                 quantity={quantity}
-                onChange={setQuantity}
+                onChange={(newQty) => {
+                  if (added) {
+                    if (addedTimerRef.current) clearTimeout(addedTimerRef.current);
+                    setAdded(false);
+                  }
+                  setQuantity(newQty);
+                }}
                 min={1}
                 max={product.stock}
               />
@@ -213,7 +233,9 @@ const ProductDetailsPage = () => {
                 icon={RotateCcw}
                 title="Click to take back / undo item from bag"
               >
-                {undoing ? 'Taking back...' : 'Added to Bag • Undo'}
+                {undoing
+                  ? 'Taking back...'
+                  : (lastAddedQty > 1 ? `Added (${lastAddedQty}) to Bag • Undo` : 'Added to Bag • Undo')}
               </Button>
             ) : (
               <Button
