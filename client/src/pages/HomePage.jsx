@@ -36,20 +36,26 @@ const HomePage = () => {
 
   const categories = [
     {
+      title: 'Vintage & Collectibles',
+      count: '15',
+      categoryQuery: 'Vintage & Collectibles',
+      image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=800&auto=format&fit=crop&q=80',
+    },
+    {
       title: 'Audio & Tech',
-      count: '6',
+      count: '5',
       categoryQuery: 'Audio & Electronics',
       image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80',
     },
     {
       title: 'Apparel & Footwear',
-      count: '6',
+      count: '5',
       categoryQuery: 'Apparel & Footwear',
       image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80',
     },
     {
       title: 'Home & Living',
-      count: '6',
+      count: '5',
       categoryQuery: 'Home & Living',
       image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&auto=format&fit=crop&q=80',
     },

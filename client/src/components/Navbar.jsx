@@ -112,6 +112,12 @@ const Navbar = () => {
                 Shop All
               </Link>
               <Link
+                to="/shop?category=Vintage%20%26%20Collectibles"
+                className={`nav-link ${isLinkActive('/shop', 'Vintage & Collectibles') ? 'active' : ''}`}
+              >
+                Vintage
+              </Link>
+              <Link
                 to="/shop?category=Audio%20%26%20Electronics"
                 className={`nav-link ${isLinkActive('/shop', 'Audio & Electronics') ? 'active' : ''}`}
               >
@@ -292,6 +298,12 @@ const Navbar = () => {
               </Link>
               <Link to="/shop" className={`nav-link ${isLinkActive('/shop') ? 'active' : ''}`}>
                 Shop All Products
+              </Link>
+              <Link
+                to="/shop?category=Vintage%20%26%20Collectibles"
+                className={`nav-link ${isLinkActive('/shop', 'Vintage & Collectibles') ? 'active' : ''}`}
+              >
+                Vintage & Collectibles
               </Link>
               <Link
                 to="/shop?category=Audio%20%26%20Electronics"

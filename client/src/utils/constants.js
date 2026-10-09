@@ -1,5 +1,6 @@
 export const CATEGORIES = [
   'All Products',
+  'Vintage & Collectibles',
   'Audio & Electronics',
   'Apparel & Footwear',
   'Home & Living',
