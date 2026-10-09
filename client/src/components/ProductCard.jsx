@@ -97,7 +97,7 @@ const ProductCard = ({ product }) => {
         <Button
           variant={added ? 'secondary' : isOutOfStock ? 'outline' : 'primary'}
           size="sm"
-          className="product-card-btn"
+          className={`product-card-btn ${added ? 'btn-added' : ''}`}
           disabled={isOutOfStock || adding}
           onClick={handleAddToCart}
           icon={added ? Check : ShoppingBag}

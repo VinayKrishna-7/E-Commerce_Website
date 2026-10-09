@@ -152,13 +152,16 @@ const Navbar = () => {
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Escape') setSearchOpen(false);
+                    }}
                     placeholder="Search goods..."
                     autoFocus
                     className="form-input"
                     style={{
                       height: '38px',
                       padding: '0.4rem 2rem 0.4rem 0.8rem',
-                      width: '180px',
+                      width: '210px',
                       fontSize: 'var(--text-xs)',
                     }}
                   />

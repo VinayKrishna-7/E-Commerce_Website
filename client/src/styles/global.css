@@ -35,6 +35,31 @@ body {
   outline-offset: 2px;
 }
 
+/* Custom sleek scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Text selection */
+::selection {
+  background-color: var(--accent-subtle);
+  color: var(--accent-primary);
+}
+
 /* Typography elements */
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
@@ -179,6 +204,16 @@ ul, ol {
   opacity: 0.55;
   cursor: not-allowed;
   pointer-events: none;
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-added {
+  background-color: var(--status-success-bg) !important;
+  color: var(--status-success) !important;
+  border-color: var(--status-success) !important;
 }
 
 .btn-primary {

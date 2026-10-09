@@ -3,7 +3,7 @@ import {
   Package,
   ShoppingCart,
   Users,
-  DollarSign,
+  IndianRupee,
   Plus,
   Edit,
   Trash2,
@@ -222,7 +222,7 @@ const AdminDashboardPage = () => {
       <div className="admin-metrics-grid">
         <div className="admin-metric-card">
           <div className="admin-metric-icon">
-            <DollarSign size={22} />
+            <IndianRupee size={22} />
           </div>
           <div>
             <div className="admin-metric-value">

@@ -109,39 +109,50 @@ const LoginPage = () => {
           </Button>
         </form>
 
-        {/* Demo Credentials Helper */}
+        {/* Discreet Test Accounts Hint */}
         <div
           style={{
             marginTop: 'var(--space-6)',
-            padding: 'var(--space-4)',
+            padding: 'var(--space-3) var(--space-4)',
             backgroundColor: 'var(--bg-subtle)',
             borderRadius: 'var(--radius-sm)',
             border: '1px solid var(--border-color)',
             fontSize: 'var(--text-xs)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 'var(--space-2)',
           }}
         >
-          <div style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: 'var(--space-2)' }}>
-            Quick Demo Accounts:
-          </div>
-          <div style={{ display: 'flex', gap: 'var(--space-2)' }}>
-            <Button
+          <span style={{ color: 'var(--text-secondary)' }}>Quick demo login:</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+            <button
               type="button"
-              variant="outline"
-              size="sm"
               onClick={() => handleFillDemo('customer')}
-              style={{ flex: 1, fontSize: '11px' }}
+              style={{
+                fontSize: '11px',
+                color: 'var(--accent-primary)',
+                fontWeight: 600,
+                textDecoration: 'underline',
+                cursor: 'pointer',
+              }}
             >
-              Customer Demo
-            </Button>
-            <Button
+              Customer
+            </button>
+            <span style={{ color: 'var(--text-muted)' }}>•</span>
+            <button
               type="button"
-              variant="outline"
-              size="sm"
               onClick={() => handleFillDemo('admin')}
-              style={{ flex: 1, fontSize: '11px' }}
+              style={{
+                fontSize: '11px',
+                color: 'var(--accent-primary)',
+                fontWeight: 600,
+                textDecoration: 'underline',
+                cursor: 'pointer',
+              }}
             >
-              Admin Demo
-            </Button>
+              Admin
+            </button>
           </div>
         </div>
 

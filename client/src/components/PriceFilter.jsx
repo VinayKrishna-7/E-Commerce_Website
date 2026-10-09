@@ -41,7 +41,7 @@ const PriceFilter = ({ minPrice, maxPrice, onApply, onClear }) => {
           <input
             type="number"
             min="0"
-            placeholder="25000"
+            placeholder="2500"
             value={max}
             onChange={(e) => setMax(e.target.value)}
             className="form-input"

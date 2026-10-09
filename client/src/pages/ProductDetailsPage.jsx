@@ -237,6 +237,44 @@ const ProductDetailsPage = () => {
               <span>Secure, protective packaging with order tracking included.</span>
             </div>
           </div>
+
+          {/* Product Specifications */}
+          <div
+            style={{
+              marginTop: 'var(--space-6)',
+              padding: 'var(--space-4)',
+              backgroundColor: 'var(--bg-card)',
+              border: '1px solid var(--border-color)',
+              borderRadius: 'var(--radius-sm)',
+              fontSize: 'var(--text-xs)',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(2, 1fr)',
+              gap: 'var(--space-3)',
+            }}
+          >
+            <div>
+              <span style={{ color: 'var(--text-muted)' }}>Category</span>
+              <div style={{ fontWeight: 600, color: 'var(--text-primary)', marginTop: '2px' }}>{product.category}</div>
+            </div>
+            <div>
+              <span style={{ color: 'var(--text-muted)' }}>Availability</span>
+              <div style={{ fontWeight: 600, color: isOutOfStock ? 'var(--status-error)' : 'var(--status-success)', marginTop: '2px' }}>
+                {isOutOfStock ? 'Out of Stock' : `${product.stock} units in stock`}
+              </div>
+            </div>
+            <div>
+              <span style={{ color: 'var(--text-muted)' }}>Item Reference</span>
+              <div style={{ fontWeight: 600, color: 'var(--text-primary)', marginTop: '2px' }}>
+                SE-{product.id.slice(0, 6).toUpperCase()}
+              </div>
+            </div>
+            <div>
+              <span style={{ color: 'var(--text-muted)' }}>Order Dispatch</span>
+              <div style={{ fontWeight: 600, color: 'var(--text-primary)', marginTop: '2px' }}>
+                1–2 business days
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
