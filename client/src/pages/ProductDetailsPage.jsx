@@ -12,7 +12,7 @@ import {
 import { productService } from '../services/productService';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
-import { formatCurrency, calculateDiscount } from '../utils/formatters';
+import { formatCurrency } from '../utils/formatters';
 import Button from '../components/Button';
 import QuantitySelector from '../components/QuantitySelector';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -90,7 +90,6 @@ const ProductDetailsPage = () => {
   const isSaved = isInWishlist(product.id);
   const isOutOfStock = product.stock <= 0;
   const isLowStock = product.stock > 0 && product.stock <= 5;
-  const discount = calculateDiscount(product.price, product.originalPrice);
 
   const handleAddToCart = async () => {
     if (isOutOfStock || adding) return;
@@ -147,7 +146,6 @@ const ProductDetailsPage = () => {
         <div className="product-info-panel">
           <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', marginBottom: 'var(--space-2)' }}>
             <span className="badge badge-category">{product.category}</span>
-            {discount && <span className="badge badge-discount">{discount}</span>}
           </div>
 
           <h1 className="product-detail-title">{product.name}</h1>
@@ -228,15 +226,15 @@ const ProductDetailsPage = () => {
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
               <Truck size={16} style={{ color: 'var(--accent-primary)' }} />
-              <span>Free delivery on orders over ₹999. Dispatched in 24 hours.</span>
+              <span>Free delivery on orders over ₹999. Dispatched within 1–2 business days.</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
               <RotateCcw size={16} style={{ color: 'var(--accent-primary)' }} />
-              <span>30-day return policy. Unconditional satisfaction guarantee.</span>
+              <span>Standard 30-day return policy for unused items in original packaging.</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
               <Package size={16} style={{ color: 'var(--accent-primary)' }} />
-              <span>Plastic-free recyclable shipping packaging.</span>
+              <span>Secure, protective packaging with order tracking included.</span>
             </div>
           </div>
         </div>
@@ -246,7 +244,7 @@ const ProductDetailsPage = () => {
       {related.length > 0 && (
         <section style={{ marginTop: 'var(--space-16)', paddingTop: 'var(--space-10)', borderTop: '1px solid var(--border-color)' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-6)' }}>
-            <h2>You May Also Admire</h2>
+            <h2>Related Products</h2>
             <Link to={`/shop?category=${encodeURIComponent(product.category)}`} style={{ fontSize: 'var(--text-sm)', color: 'var(--accent-primary)', fontWeight: 600 }}>
               View more in {product.category}
             </Link>

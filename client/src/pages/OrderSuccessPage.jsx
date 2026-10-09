@@ -199,7 +199,7 @@ const OrderSuccessPage = () => {
           <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--text-sm)' }}>
             <span style={{ color: 'var(--text-secondary)' }}>Shipping Fee</span>
             <span>
-              {Number(order.shippingAmount) === 0 ? 'Complimentary' : formatCurrency(order.shippingAmount)}
+              {Number(order.shippingAmount) === 0 ? 'Free' : formatCurrency(order.shippingAmount)}
             </span>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--text-lg)', fontWeight: 700 }}>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Heart, ShoppingBag, Check } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
-import { formatCurrency, calculateDiscount } from '../utils/formatters';
+import { formatCurrency } from '../utils/formatters';
 import Button from './Button';
 
 const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80';
@@ -20,16 +20,6 @@ const ProductCard = ({ product }) => {
   const isSaved = isInWishlist(product.id);
   const isOutOfStock = product.stock <= 0;
   const isLowStock = product.stock > 0 && product.stock <= 5;
-  const discount = calculateDiscount(product.price, product.originalPrice);
-
-  // Deterministic ratings for consistent professional display
-  const nameCode = product.name.charCodeAt(0) || 65;
-  const rating = (4.7 + ((nameCode % 3) * 0.1)).toFixed(1);
-  const reviewCount = 18 + ((nameCode * 5) % 55);
-
-  const discountPercent = product.originalPrice && Number(product.originalPrice) > Number(product.price)
-    ? Math.round(((Number(product.originalPrice) - Number(product.price)) / Number(product.originalPrice)) * 100)
-    : null;
 
   const handleAddToCart = async (e) => {
     e.preventDefault();
@@ -62,12 +52,11 @@ const ProductCard = ({ product }) => {
             onError={() => setImgSrc(FALLBACK_IMAGE)}
           />
 
-          <div className="product-badge-group">
-            {discountPercent && (
-              <span className="badge badge-discount">SAVE {discountPercent}%</span>
-            )}
-            {product.featured && <span className="badge badge-category">Featured</span>}
-          </div>
+          {product.featured && (
+            <div className="product-badge-group">
+              <span className="badge badge-category">Featured</span>
+            </div>
+          )}
         </Link>
 
         <button
@@ -82,14 +71,7 @@ const ProductCard = ({ product }) => {
       </div>
 
       <div className="product-content">
-        <div className="product-meta-header">
-          <span className="product-category-text">{product.category}</span>
-          <div className="product-rating-badge">
-            <span className="product-star-icon">★</span>
-            <span className="product-rating-num">{rating}</span>
-            <span className="product-review-count">({reviewCount})</span>
-          </div>
-        </div>
+        <span className="product-category-text">{product.category}</span>
 
         <Link to={`/products/${product.id}`}>
           <h3 className="product-title">{product.name}</h3>
@@ -98,9 +80,9 @@ const ProductCard = ({ product }) => {
         {isOutOfStock ? (
           <div className="product-stock-tag out">Out of stock</div>
         ) : isLowStock ? (
-          <div className="product-stock-tag low">⚡ Only {product.stock} left</div>
+          <div className="product-stock-tag low">Only {product.stock} units remaining</div>
         ) : (
-          <div className="product-stock-tag in">✓ In stock ({product.stock})</div>
+          <div className="product-stock-tag in">In stock ({product.stock})</div>
         )}
 
         <div className="product-price-row">
@@ -120,7 +102,7 @@ const ProductCard = ({ product }) => {
           onClick={handleAddToCart}
           icon={added ? Check : ShoppingBag}
         >
-          {added ? 'Added to Bag' : isOutOfStock ? 'Sold Out' : 'Add to Bag'}
+          {added ? 'Added to Bag' : isOutOfStock ? 'Out of Stock' : 'Add to Bag'}
         </Button>
       </div>
     </div>

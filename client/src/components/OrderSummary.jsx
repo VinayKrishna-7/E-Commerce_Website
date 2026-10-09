@@ -35,9 +35,9 @@ const OrderSummary = ({
             <Truck size={14} style={{ color: 'var(--accent-primary)' }} />
             <span>
               {amountToFreeShipping === 0 ? (
-                <strong>You qualify for complimentary standard shipping!</strong>
+                <strong>You qualify for free delivery!</strong>
               ) : (
-                <>Add <strong>{formatCurrency(amountToFreeShipping)}</strong> more for free shipping</>
+                <>Add <strong>{formatCurrency(amountToFreeShipping)}</strong> more for free delivery</>
               )}
             </span>
           </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, ShieldCheck, Truck, RefreshCw, Headphones } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Truck, RefreshCw, Headphones } from 'lucide-react';
 import { productService } from '../services/productService';
 import ProductGrid from '../components/ProductGrid';
 import CategoryCard from '../components/CategoryCard';
@@ -75,7 +75,6 @@ const HomePage = () => {
           <div className="hero-grid">
             <div>
               <div className="hero-eyebrow">
-                <Sparkles size={14} />
                 <span>NEW ARRIVALS • 2026</span>
               </div>
               <h1 className="hero-title">
@@ -96,29 +95,6 @@ const HomePage = () => {
                   </Button>
                 </a>
               </div>
-
-              {/* High-credibility trust metrics bar */}
-              <div className="hero-metrics-bar">
-                <div className="hero-metric-item">
-                  <span className="hero-metric-val">40+</span>
-                  <span className="hero-metric-label">Curated Artifacts</span>
-                </div>
-                <div className="hero-metric-sep" />
-                <div className="hero-metric-item">
-                  <span className="hero-metric-val">100%</span>
-                  <span className="hero-metric-label">Authentic Quality</span>
-                </div>
-                <div className="hero-metric-sep" />
-                <div className="hero-metric-item">
-                  <span className="hero-metric-val">₹999</span>
-                  <span className="hero-metric-label">Free Delivery</span>
-                </div>
-                <div className="hero-metric-sep" />
-                <div className="hero-metric-item">
-                  <span className="hero-metric-val">4.9 ★</span>
-                  <span className="hero-metric-label">Top Rated</span>
-                </div>
-              </div>
             </div>
 
             <div className="hero-image-frame">
@@ -127,23 +103,6 @@ const HomePage = () => {
                 alt="Curated minimalist lifestyle objects"
                 loading="eager"
               />
-
-              {/* Floating Live Badge */}
-              <div className="hero-floating-badge">
-                <span className="hero-pulse-dot" />
-                <span>36+ New Arrivals In Stock</span>
-              </div>
-
-              {/* Floating Product Highlight Card */}
-              <div className="hero-floating-card">
-                <div className="hero-floating-icon">
-                  <Sparkles size={16} />
-                </div>
-                <div className="hero-floating-info">
-                  <span className="hero-floating-title">Bestseller of the Week</span>
-                  <span className="hero-floating-subtitle">Vintage 35mm Camera • ₹1,899</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -207,53 +166,18 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Editorial Story / Brand Banner */}
-      <section style={{ padding: 'var(--space-16) 0' }}>
-        <div className="container">
-          <div
-            style={{
-              backgroundColor: 'var(--bg-card)',
-              border: '1px solid var(--border-color)',
-              borderRadius: 'var(--radius-lg)',
-              padding: 'var(--space-10)',
-              display: 'grid',
-              gridTemplateColumns: '1fr',
-              gap: 'var(--space-8)',
-              alignItems: 'center',
-            }}
-          >
-            <div style={{ maxWidth: '640px' }}>
-              <span className="badge badge-category" style={{ marginBottom: 'var(--space-3)' }}>
-                The ShopEase Standard
-              </span>
-              <h2 style={{ fontSize: 'var(--text-3xl)', marginBottom: 'var(--space-4)', lineHeight: 1.2 }}>
-                Goods built for decades, not seasons.
-              </h2>
-              <p style={{ fontSize: 'var(--text-base)', lineHeight: 1.7, marginBottom: 'var(--space-6)' }}>
-                We believe the objects you use every day should feel substantial, perform reliably, and mature gracefully over time. We partner directly with dedicated artisans and manufacturers who prioritize sustainable raw materials and ethical labor standards.
-              </p>
-              <Link to="/shop">
-                <Button variant="primary" icon={ArrowRight}>
-                  Discover Our Story & Goods
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Trending / Best Selling Products */}
-      <section style={{ padding: 'var(--space-10) 0 var(--space-16)' }}>
+      {/* Popular Products */}
+      <section style={{ padding: 'var(--space-12) 0 var(--space-16)' }}>
         <div className="container">
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 'var(--space-8)' }}>
             <div>
               <span style={{ fontSize: 'var(--text-xs)', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-muted)', fontWeight: 600 }}>
-                Customer Favorites
+                Catalog Highlights
               </span>
-              <h2 style={{ marginTop: 'var(--space-1)' }}>Trending Goods</h2>
+              <h2 style={{ marginTop: 'var(--space-1)' }}>Popular Products</h2>
             </div>
             <Link to="/shop?sort=price_desc" style={{ fontSize: 'var(--text-sm)', color: 'var(--accent-primary)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
-              <span>View All Trending</span>
+              <span>View All</span>
               <ArrowRight size={15} />
             </Link>
           </div>
@@ -262,39 +186,39 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Value Proposition / Benefits Banner */}
-      <section>
+      {/* Store Policies / Benefits */}
+      <section style={{ padding: '0 0 var(--space-16)' }}>
         <div className="container">
           <div className="benefits-grid">
             <div className="benefit-item">
               <Truck size={24} className="benefit-icon" />
               <div>
-                <h4 className="benefit-title">Complimentary Shipping</h4>
-                <p className="benefit-text">On orders over ₹999 across all states in India.</p>
+                <h4 className="benefit-title">Free Standard Delivery</h4>
+                <p className="benefit-text">Available on all orders over ₹999 across India.</p>
               </div>
             </div>
 
             <div className="benefit-item">
               <RefreshCw size={24} className="benefit-icon" />
               <div>
-                <h4 className="benefit-title">30-Day Hassle-Free Returns</h4>
-                <p className="benefit-text">Prepaid return labels with quick, honest refunds.</p>
+                <h4 className="benefit-title">30-Day Returns</h4>
+                <p className="benefit-text">Easy return process for items in original condition.</p>
               </div>
             </div>
 
             <div className="benefit-item">
               <ShieldCheck size={24} className="benefit-icon" />
               <div>
-                <h4 className="benefit-title">Transparent Provenance</h4>
-                <p className="benefit-text">100% genuine craftsmanship and verified origins.</p>
+                <h4 className="benefit-title">Cash on Delivery</h4>
+                <p className="benefit-text">Pay securely upon delivery at your doorstep.</p>
               </div>
             </div>
 
             <div className="benefit-item">
               <Headphones size={24} className="benefit-icon" />
               <div>
-                <h4 className="benefit-title">Attentive Client Care</h4>
-                <p className="benefit-text">Dedicated human support ready to assist every step.</p>
+                <h4 className="benefit-title">Customer Support</h4>
+                <p className="benefit-text">Direct email assistance at support@shopease.com.</p>
               </div>
             </div>
           </div>

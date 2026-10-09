@@ -83,7 +83,7 @@ const CheckoutPage = () => {
     setSubmitting(true);
     try {
       const orderPayload = {
-        paymentMethod: paymentMethod === 'COD' ? 'Cash on Delivery' : 'Mock Card Payment',
+        paymentMethod: paymentMethod === 'COD' ? 'Cash on Delivery' : 'Credit / Debit Card',
         shippingAddress: {
           recipientName: recipientName.trim(),
           phone: phone.trim(),
@@ -300,8 +300,8 @@ const CheckoutPage = () => {
                   />
                   <CreditCard size={20} style={{ color: 'var(--accent-primary)' }} />
                   <div>
-                    <div style={{ fontWeight: 600, fontSize: 'var(--text-sm)' }}>Instant Demo Card (Simulated Sandbox)</div>
-                    <div style={{ fontSize: 'var(--text-xs)', color: 'var(--text-secondary)' }}>Safe mock payment flow for portfolio demonstration.</div>
+                    <div style={{ fontWeight: 600, fontSize: 'var(--text-sm)' }}>Credit / Debit Card (Online)</div>
+                    <div style={{ fontSize: 'var(--text-xs)', color: 'var(--text-secondary)' }}>Instant secure online card payment.</div>
                   </div>
                 </label>
               </div>
