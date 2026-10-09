@@ -80,15 +80,15 @@ const HomePage = () => {
               </p>
               <div className="hero-cta-group">
                 <Link to="/shop">
-                  <Button variant="primary" size="lg" icon={ArrowRight}>
-                    Explore Collection
+                  <Button variant="primary" size="lg" iconRight={ArrowRight}>
+                    Shop Now
                   </Button>
                 </Link>
-                <Link to="/shop?category=Audio%20%26%20Electronics">
+                <a href="#categories">
                   <Button variant="secondary" size="lg">
-                    Browse Audio & Tech
+                    Explore Categories
                   </Button>
-                </Link>
+                </a>
               </div>
             </div>
 
@@ -104,7 +104,7 @@ const HomePage = () => {
       </section>
 
       {/* Categories Showcase */}
-      <section style={{ padding: 'var(--space-12) 0' }}>
+      <section id="categories" style={{ padding: 'var(--space-12) 0' }}>
         <div className="container">
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 'var(--space-8)' }}>
             <div>

@@ -9,6 +9,7 @@ const Button = ({
   disabled = false,
   className = '',
   icon: Icon,
+  iconRight: IconRight,
   type = 'button',
   onClick,
   ...props
@@ -33,6 +34,7 @@ const Button = ({
         <>
           {Icon && <Icon size={16} />}
           {children}
+          {IconRight && <IconRight size={16} />}
         </>
       )}
     </button>
