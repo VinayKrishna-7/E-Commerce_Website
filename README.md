@@ -1,6 +1,7 @@
 # ShopEase
 
-A full-stack e-commerce web application for discovering and purchasing curated vintage products.
+An E-commerce platform designed to deliver a seamless shopping experience through intuitive product discovery, wishlist management, cart functionality, and effortless order placement—all within a clean, minimal, and responsive interface.
+
 
 ## Features
 
