@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingBag } from 'lucide-react';
+import Logo from './Logo';
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Brand Info */}
           <div className="footer-simple-brand">
             <Link to="/" className="footer-simple-logo">
-              <ShoppingBag size={19} className="footer-simple-logo-icon" />
+              <Logo size={22} />
               <span>ShopEase</span>
             </Link>
             <p className="footer-simple-desc">

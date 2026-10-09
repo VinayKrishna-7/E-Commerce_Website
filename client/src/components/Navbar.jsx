@@ -16,6 +16,7 @@ import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 import ThemeToggle from './ThemeToggle';
+import Logo from './Logo';
 
 const Navbar = () => {
   const { user, isAuthenticated, isAdmin, logout } = useAuth();
@@ -97,7 +98,7 @@ const Navbar = () => {
               </button>
 
               <Link to="/" className="navbar-brand">
-                <span className="brand-mark">S</span>
+                <Logo size={28} />
                 <span>ShopEase</span>
               </Link>
             </div>
@@ -272,7 +273,7 @@ const Navbar = () => {
           <div className="mobile-menu-content" onClick={(e) => e.stopPropagation()}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-6)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
-                <span className="brand-mark" style={{ width: 24, height: 24, fontSize: 13 }}>S</span>
+                <Logo size={24} />
                 <span style={{ fontWeight: 700 }}>ShopEase</span>
               </div>
               <button
