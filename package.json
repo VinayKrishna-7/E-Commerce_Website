@@ -20,6 +20,5 @@
     "postgresql",
     "prisma"
   ],
-  "author": "ShopEase Team",
-  "license": "ISC"
+  "author": "ShopEase Team"
 }
