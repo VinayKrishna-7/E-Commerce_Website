@@ -231,7 +231,7 @@ const ShopPage = () => {
               )}
               {(minPriceParam || maxPriceParam) && (
                 <span className="badge badge-category" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                  ${minPriceParam || '0'} – ${maxPriceParam || 'Any'}
+                  ₹{minPriceParam || '0'} – ₹{maxPriceParam || 'Any'}
                   <X
                     size={13}
                     style={{ cursor: 'pointer' }}

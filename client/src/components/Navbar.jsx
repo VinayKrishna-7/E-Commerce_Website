@@ -68,7 +68,7 @@ const Navbar = () => {
     <>
       {/* Announcement Bar */}
       <div className="announcement-bar">
-        <span>Complimentary worldwide shipping on orders over $100</span>
+        <span>Complimentary delivery across India on orders over ₹999</span>
         <span style={{ opacity: 0.5 }}>•</span>
         <Link to="/shop">Shop the new arrivals</Link>
       </div>

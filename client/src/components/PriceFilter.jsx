@@ -25,7 +25,7 @@ const PriceFilter = ({ minPrice, maxPrice, onApply, onClear }) => {
     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
       <div className="price-range-inputs">
         <div>
-          <label style={{ fontSize: 'var(--text-xs)', color: 'var(--text-secondary)' }}>Min ($)</label>
+          <label style={{ fontSize: 'var(--text-xs)', color: 'var(--text-secondary)' }}>Min (₹)</label>
           <input
             type="number"
             min="0"
@@ -37,11 +37,11 @@ const PriceFilter = ({ minPrice, maxPrice, onApply, onClear }) => {
           />
         </div>
         <div>
-          <label style={{ fontSize: 'var(--text-xs)', color: 'var(--text-secondary)' }}>Max ($)</label>
+          <label style={{ fontSize: 'var(--text-xs)', color: 'var(--text-secondary)' }}>Max (₹)</label>
           <input
             type="number"
             min="0"
-            placeholder="500"
+            placeholder="25000"
             value={max}
             onChange={(e) => setMax(e.target.value)}
             className="form-input"

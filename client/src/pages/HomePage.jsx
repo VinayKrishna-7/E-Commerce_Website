@@ -224,7 +224,7 @@ const HomePage = () => {
               <Truck size={24} className="benefit-icon" />
               <div>
                 <h4 className="benefit-title">Complimentary Shipping</h4>
-                <p className="benefit-text">On orders over $100 across North America & Europe.</p>
+                <p className="benefit-text">On orders over ₹999 across all states in India.</p>
               </div>
             </div>
 

@@ -1,7 +1,7 @@
 const prisma = require('../config/prisma');
 
-const SHIPPING_THRESHOLD = 100.0;
-const FLAT_SHIPPING_FEE = 10.0;
+const SHIPPING_THRESHOLD = 999.0;
+const FLAT_SHIPPING_FEE = 99.0;
 
 const createOrder = async (req, res, next) => {
   try {

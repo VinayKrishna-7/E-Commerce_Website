@@ -1,11 +1,10 @@
 export const formatCurrency = (amount) => {
   const numeric = typeof amount === 'string' ? parseFloat(amount) : Number(amount);
-  if (isNaN(numeric)) return '$0.00';
-  return new Intl.NumberFormat('en-US', {
+  if (isNaN(numeric)) return '₹0';
+  return new Intl.NumberFormat('en-IN', {
     style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
+    currency: 'INR',
+    maximumFractionDigits: 0,
   }).format(numeric);
 };
 

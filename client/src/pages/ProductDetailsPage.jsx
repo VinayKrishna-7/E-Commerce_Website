@@ -228,7 +228,7 @@ const ProductDetailsPage = () => {
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
               <Truck size={16} style={{ color: 'var(--accent-primary)' }} />
-              <span>Free delivery on orders over $100. Dispatched in 24 hours.</span>
+              <span>Free delivery on orders over ₹999. Dispatched in 24 hours.</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
               <RotateCcw size={16} style={{ color: 'var(--accent-primary)' }} />

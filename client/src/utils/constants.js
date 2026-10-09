@@ -13,5 +13,5 @@ export const SORT_OPTIONS = [
   { value: 'name_asc', label: 'Name: A to Z' },
 ];
 
-export const SHIPPING_THRESHOLD = 100.0;
-export const FLAT_SHIPPING_FEE = 10.0;
+export const SHIPPING_THRESHOLD = 999.0;
+export const FLAT_SHIPPING_FEE = 99.0;

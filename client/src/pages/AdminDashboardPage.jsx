@@ -538,24 +538,24 @@ const AdminDashboardPage = () => {
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-3)' }}>
                 <FormInput
-                  label="Price ($)"
+                  label="Price (₹)"
                   type="number"
                   step="0.01"
                   min="0"
                   value={prodForm.price}
                   onChange={(e) => setProdForm({ ...prodForm, price: e.target.value })}
-                  placeholder="89.00"
+                  placeholder="4999.00"
                   required
                 />
 
                 <FormInput
-                  label="Original Price ($) (Optional)"
+                  label="Original Price (₹) (Optional)"
                   type="number"
                   step="0.01"
                   min="0"
                   value={prodForm.originalPrice}
                   onChange={(e) => setProdForm({ ...prodForm, originalPrice: e.target.value })}
-                  placeholder="110.00"
+                  placeholder="5999.00"
                 />
               </div>
 

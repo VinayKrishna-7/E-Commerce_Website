@@ -8,8 +8,8 @@ const sampleProducts = [
   {
     name: 'Acoustic Precision Studio Headphones',
     description: 'Closed-back reference monitor headphones crafted with machined aluminum yokes, beryllium drivers, and supple sheepskin ear cushions for fatigue-free listening.',
-    price: 249.00,
-    originalPrice: 289.00,
+    price: 14999.00,
+    originalPrice: 17999.00,
     imageUrl: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80',
     category: 'Audio & Electronics',
     stock: 24,
@@ -18,8 +18,8 @@ const sampleProducts = [
   {
     name: 'Cast Brass Tabletop Radio & Speaker',
     description: 'Analog FM tuner integrated with lossless Bluetooth 5.3 architecture. Enclosed within hand-finished acoustic birch ply with solid milled brass knobs.',
-    price: 185.00,
-    originalPrice: 210.00,
+    price: 9999.00,
+    originalPrice: 12499.00,
     imageUrl: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?w=800&auto=format&fit=crop&q=80',
     category: 'Audio & Electronics',
     stock: 12,
@@ -28,7 +28,7 @@ const sampleProducts = [
   {
     name: 'Tactile Mechanical Keypad (Oatmeal)',
     description: 'Compact 68-key mechanical keyboard featuring custom lubed tactile switches, dye-sub PBT keycaps, and a dampening silicone internal structure.',
-    price: 145.00,
+    price: 7499.00,
     originalPrice: null,
     imageUrl: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800&auto=format&fit=crop&q=80',
     category: 'Audio & Electronics',
@@ -38,8 +38,8 @@ const sampleProducts = [
   {
     name: 'Minimalist Desk Lamp with Wireless Base',
     description: 'Dimmable warm 2700K LED task lamp with anodized aluminum gooseneck and integrated 15W Qi-certified induction charging stone base.',
-    price: 120.00,
-    originalPrice: 140.00,
+    price: 4999.00,
+    originalPrice: 5999.00,
     imageUrl: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800&auto=format&fit=crop&q=80',
     category: 'Audio & Electronics',
     stock: 15,
@@ -48,8 +48,8 @@ const sampleProducts = [
   {
     name: 'Solid Walnut Dual Monitor Riser',
     description: 'Elevates dual screen setups to natural ergonomic height. Single-slab sustainable American walnut sealed with plant-based hardwax oil.',
-    price: 160.00,
-    originalPrice: 180.00,
+    price: 8499.00,
+    originalPrice: 9999.00,
     imageUrl: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=800&auto=format&fit=crop&q=80',
     category: 'Audio & Electronics',
     stock: 9,
@@ -60,8 +60,8 @@ const sampleProducts = [
   {
     name: 'Heavyweight Loopback French Terry Crewneck',
     description: '450 GSM organic combed cotton sweater knit slowly on vintage loopwheel machines. Ribbed side gussets and flatlock seam construction.',
-    price: 115.00,
-    originalPrice: 135.00,
+    price: 4499.00,
+    originalPrice: 5499.00,
     imageUrl: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80',
     category: 'Apparel & Footwear',
     stock: 30,
@@ -70,7 +70,7 @@ const sampleProducts = [
   {
     name: 'Selvedge Cotton Utility Overshirt',
     description: 'Woven from 12oz shuttle-loomed Japanese canvas. Features deep utilitarian cargo chest pockets, horn buttons, and reinforced elbow patches.',
-    price: 165.00,
+    price: 6999.00,
     originalPrice: null,
     imageUrl: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80',
     category: 'Apparel & Footwear',
@@ -80,8 +80,8 @@ const sampleProducts = [
   {
     name: 'Unstructured Relaxed Linen Chore Coat',
     description: 'Pre-washed Belgian flax linen tailored with soft dropped shoulders, patch pockets, and interior passport stash compartment.',
-    price: 195.00,
-    originalPrice: 230.00,
+    price: 8999.00,
+    originalPrice: 10999.00,
     imageUrl: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&auto=format&fit=crop&q=80',
     category: 'Apparel & Footwear',
     stock: 8,
@@ -90,8 +90,8 @@ const sampleProducts = [
   {
     name: 'Goodyear Welted Suede Desert Boots',
     description: 'Supple snuff suede upper sourced from Charles F. Stead tannery, natural crepe rubber outsole, and fully rebuildable welted sole structure.',
-    price: 220.00,
-    originalPrice: 260.00,
+    price: 11999.00,
+    originalPrice: 14499.00,
     imageUrl: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&auto=format&fit=crop&q=80',
     category: 'Apparel & Footwear',
     stock: 11,
@@ -100,7 +100,7 @@ const sampleProducts = [
   {
     name: 'Ribbed Merino Wool Watch Cap',
     description: 'Spun from extra-fine 19.5 micron Zque certified merino wool. Seamless circular knit that stays breathable across transitioning climates.',
-    price: 48.00,
+    price: 1999.00,
     originalPrice: null,
     imageUrl: 'https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=800&auto=format&fit=crop&q=80',
     category: 'Apparel & Footwear',
@@ -112,7 +112,7 @@ const sampleProducts = [
   {
     name: 'Hand-Thrown Speckled Stoneware Pour-Over',
     description: 'Slow-crafted on the pottery wheel using iron-flecked stoneware clay with an unglazed raw clay exterior and satin white food-safe interior.',
-    price: 54.00,
+    price: 2499.00,
     originalPrice: null,
     imageUrl: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&auto=format&fit=crop&q=80',
     category: 'Home & Living',
@@ -122,8 +122,8 @@ const sampleProducts = [
   {
     name: 'Double-Walled Borosilicate Glass Teapot',
     description: 'Heat-resistant borosilicate glass with removable ultra-fine micro-perforated stainless steel infuser basket and drip-free precision spout.',
-    price: 68.00,
-    originalPrice: 80.00,
+    price: 2899.00,
+    originalPrice: 3499.00,
     imageUrl: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&auto=format&fit=crop&q=80',
     category: 'Home & Living',
     stock: 16,
@@ -132,8 +132,8 @@ const sampleProducts = [
   {
     name: 'Cast Iron Dutch Oven in Forest Enamel',
     description: 'Heavy gauge cast iron pot coated with durable matte vitreous enamel. Optimized moisture-retaining lid ridges for slow braising and artisan sourdough.',
-    price: 175.00,
-    originalPrice: 215.00,
+    price: 7999.00,
+    originalPrice: 9999.00,
     imageUrl: 'https://images.unsplash.com/photo-1584990347449-39b56f94770d?w=800&auto=format&fit=crop&q=80',
     category: 'Home & Living',
     stock: 7,
@@ -142,8 +142,8 @@ const sampleProducts = [
   {
     name: 'Washed French Linen Bed Sheet Set (Ivory)',
     description: '100% certified Normandy flax softened through stone washing. Naturally thermo-regulating for cool summer nights and cozy winter warmth.',
-    price: 210.00,
-    originalPrice: 250.00,
+    price: 9499.00,
+    originalPrice: 11999.00,
     imageUrl: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&auto=format&fit=crop&q=80',
     category: 'Home & Living',
     stock: 12,
@@ -152,7 +152,7 @@ const sampleProducts = [
   {
     name: 'Solid Brass Incense Burner & Tray',
     description: 'Precision milled solid brass burner designed for Japanese coreless incense sticks. Ages into an authentic, warm natural patina.',
-    price: 42.00,
+    price: 1899.00,
     originalPrice: null,
     imageUrl: 'https://images.unsplash.com/photo-1602928321679-560bb453f190?w=800&auto=format&fit=crop&q=80',
     category: 'Home & Living',
@@ -164,8 +164,8 @@ const sampleProducts = [
   {
     name: 'Full Grain Vegetable-Tanned Leather Tote',
     description: 'Hand-stitched Tuscan vegetable-tanned harness leather with brass rivets, interior key leash, and dedicated 16-inch padded laptop partition.',
-    price: 275.00,
-    originalPrice: 320.00,
+    price: 13999.00,
+    originalPrice: 16499.00,
     imageUrl: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&auto=format&fit=crop&q=80',
     category: 'Carry & Accessories',
     stock: 10,
@@ -174,8 +174,8 @@ const sampleProducts = [
   {
     name: 'Waxed Canvas Commuter Daypack (Olive)',
     description: 'Water-repellent 18oz Scottish Martexin waxed cotton canvas, vegetable-tanned bridle leather straps, and heavy YKK Excella brass zippers.',
-    price: 198.00,
-    originalPrice: 225.00,
+    price: 8999.00,
+    originalPrice: 10499.00,
     imageUrl: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&auto=format&fit=crop&q=80',
     category: 'Carry & Accessories',
     stock: 17,
@@ -184,8 +184,8 @@ const sampleProducts = [
   {
     name: 'Minimalist Bifold Card Wallet',
     description: 'Ultra-slim Horween Chromexcel leather wallet with 6 card slots and central folded currency pocket. Glazed hand-burnished edges.',
-    price: 58.00,
-    originalPrice: 70.00,
+    price: 2499.00,
+    originalPrice: 2999.00,
     imageUrl: 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&auto=format&fit=crop&q=80',
     category: 'Carry & Accessories',
     stock: 25,
@@ -194,7 +194,7 @@ const sampleProducts = [
   {
     name: 'Machined Brass Rollerball Pen',
     description: 'Well-balanced solid brass body that accommodates standard Schmidt and Pilot G2 ink refills. Smooth screw-on cap mechanism.',
-    price: 65.00,
+    price: 2999.00,
     originalPrice: null,
     imageUrl: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=800&auto=format&fit=crop&q=80',
     category: 'Carry & Accessories',
@@ -204,8 +204,8 @@ const sampleProducts = [
   {
     name: 'Polarized Cellulose Acetate Sunglasses',
     description: 'Handcrafted Italian Mazzucchelli acetate frames fitted with scratch-resistant polarized mineral glass lenses offering 100% UV400 defense.',
-    price: 155.00,
-    originalPrice: 180.00,
+    price: 6499.00,
+    originalPrice: 7999.00,
     imageUrl: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&auto=format&fit=crop&q=80',
     category: 'Carry & Accessories',
     stock: 15,
@@ -214,7 +214,7 @@ const sampleProducts = [
 ];
 
 async function main() {
-  console.log('[Seed] Seeding database with initial records...');
+  console.log('[Seed] Seeding database with initial records in Indian Rupees (INR)...');
 
   // 1. Create Default Admin User
   const adminPasswordHash = await bcrypt.hash('Admin@12345', 10);
@@ -262,18 +262,18 @@ async function main() {
       data: {
         userId: customer.id,
         recipientName: 'Eleanor Vance',
-        phone: '+1 (555) 234-5678',
-        addressLine: '742 Evergreen Terrace',
-        city: 'Portland',
-        state: 'OR',
-        postalCode: '97201',
+        phone: '+91 98765 43210',
+        addressLine: 'Flat 402, Lotus Residency, Indiranagar',
+        city: 'Bengaluru',
+        state: 'Karnataka',
+        postalCode: '560038',
         isDefault: true,
       },
     });
     console.log('[Seed] Customer default delivery address created.');
   }
 
-  // 4. Create Products
+  // 4. Create/Update Products
   console.log(`[Seed] Seeding ${sampleProducts.length} curated products...`);
   for (const prod of sampleProducts) {
     const existing = await prisma.product.findFirst({
@@ -300,7 +300,7 @@ async function main() {
     }
   }
 
-  // 5. Seed a Sample Historical Completed Order for the demo customer
+  // 5. Update or Seed Sample Historical Completed Order
   const existingOrder = await prisma.order.findFirst({
     where: { userId: customer.id },
   });
@@ -311,7 +311,7 @@ async function main() {
       const p1 = productsInDb[0];
       const p2 = productsInDb[1];
       const subtotal = Number(p1.price) + Number(p2.price);
-      const shipping = subtotal >= 100 ? 0 : 10;
+      const shipping = subtotal >= 999 ? 0 : 99;
       const total = subtotal + shipping;
 
       await prisma.order.create({
@@ -325,11 +325,11 @@ async function main() {
           paymentStatus: 'PAID',
           shippingAddressSnapshot: {
             recipientName: 'Eleanor Vance',
-            phone: '+1 (555) 234-5678',
-            addressLine: '742 Evergreen Terrace',
-            city: 'Portland',
-            state: 'OR',
-            postalCode: '97201',
+            phone: '+91 98765 43210',
+            addressLine: 'Flat 402, Lotus Residency, Indiranagar',
+            city: 'Bengaluru',
+            state: 'Karnataka',
+            postalCode: '560038',
           },
           items: {
             create: [
@@ -357,7 +357,7 @@ async function main() {
     }
   }
 
-  console.log('[Seed] Database seeding finished successfully!');
+  console.log('[Seed] Database seeding finished successfully in Indian Rupees (INR)!');
 }
 
 main()
