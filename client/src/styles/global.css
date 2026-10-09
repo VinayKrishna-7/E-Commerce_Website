@@ -214,6 +214,22 @@ ul, ol {
   background-color: var(--status-success-bg) !important;
   color: var(--status-success) !important;
   border-color: var(--status-success) !important;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-added:hover:not(:disabled) {
+  background-color: var(--status-error-bg) !important;
+  color: var(--status-error) !important;
+  border-color: var(--status-error) !important;
+}
+
+.btn-added svg {
+  transition: transform var(--transition-fast);
+}
+
+.btn-added:hover:not(:disabled) svg {
+  transform: rotate(-45deg);
 }
 
 .btn-primary {

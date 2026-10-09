@@ -10,9 +10,9 @@ export const ToastProvider = ({ children }) => {
     setToasts((prev) => prev.filter((t) => t.id !== id));
   }, []);
 
-  const addToast = useCallback((message, type = 'info', duration = 4000, action = null) => {
+  const addToast = useCallback((message, type = 'info', duration = 4000) => {
     const id = Date.now() + Math.random().toString(36).substring(2, 9);
-    setToasts((prev) => [...prev, { id, message, type, action }]);
+    setToasts((prev) => [...prev, { id, message, type }]);
 
     if (duration > 0) {
       setTimeout(() => {
@@ -21,9 +21,9 @@ export const ToastProvider = ({ children }) => {
     }
   }, [removeToast]);
 
-  const success = useCallback((msg, action = null) => addToast(msg, 'success', 4000, action), [addToast]);
+  const success = useCallback((msg) => addToast(msg, 'success'), [addToast]);
   const error = useCallback((msg) => addToast(msg, 'error'), [addToast]);
-  const info = useCallback((msg, action = null) => addToast(msg, 'info', 4000, action), [addToast]);
+  const info = useCallback((msg) => addToast(msg, 'info'), [addToast]);
 
   return (
     <ToastContext.Provider value={{ success, error, info, addToast }}>
@@ -42,29 +42,6 @@ export const ToastProvider = ({ children }) => {
               {isError && <AlertCircle size={18} style={{ color: 'var(--status-error)', flexShrink: 0 }} />}
               {!isSuccess && !isError && <Info size={18} style={{ color: 'var(--status-info)', flexShrink: 0 }} />}
               <span style={{ flex: 1 }}>{toast.message}</span>
-              {toast.action && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    toast.action.onClick?.();
-                    removeToast(toast.id);
-                  }}
-                  style={{
-                    marginLeft: 'var(--space-2)',
-                    padding: '3px 8px',
-                    fontSize: '11px',
-                    fontWeight: 700,
-                    color: 'var(--status-success)',
-                    backgroundColor: 'transparent',
-                    borderRadius: 'var(--radius-xs)',
-                    border: '1px solid currentColor',
-                    cursor: 'pointer',
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  {toast.action.label || 'Undo'}
-                </button>
-              )}
               <button
                 className="toast-close"
                 onClick={() => removeToast(toast.id)}

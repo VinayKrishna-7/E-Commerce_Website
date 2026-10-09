@@ -78,10 +78,7 @@ export const CartProvider = ({ children }) => {
       try {
         const res = await cartService.addToCart(product.id, quantity);
         await fetchCart();
-        success(`Added "${product.name}" to cart`, {
-          label: 'Undo',
-          onClick: () => undoAddToCart(product.id, quantity),
-        });
+        success(`Added "${product.name}" to cart`);
         return true;
       } catch (err) {
         toastError(err.message || 'Could not add to cart');
@@ -117,10 +114,7 @@ export const CartProvider = ({ children }) => {
       }
       saveGuestCart(updated);
       setItems(updated);
-      success(`Added "${product.name}" to cart`, {
-        label: 'Undo',
-        onClick: () => undoAddToCart(product.id, quantity),
-      });
+      success(`Added "${product.name}" to cart`);
       return true;
     }
   };

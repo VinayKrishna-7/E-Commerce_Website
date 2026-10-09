@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, ShoppingBag, Check, RotateCcw } from 'lucide-react';
+import { Heart, ShoppingBag, RotateCcw } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 import { formatCurrency } from '../utils/formatters';
@@ -118,28 +118,17 @@ const ProductCard = ({ product }) => {
         </div>
 
         {added ? (
-          <div
-            className="product-card-added-group"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-            }}
+          <Button
+            variant="secondary"
+            size="sm"
+            className="product-card-btn btn-added"
+            disabled={undoing}
+            onClick={handleUndo}
+            icon={RotateCcw}
+            title="Click to take back / undo item from bag"
           >
-            <div className="btn btn-sm btn-added added-pill">
-              <Check size={14} />
-              <span>Added</span>
-            </div>
-            <button
-              type="button"
-              className="btn btn-sm btn-outline undo-btn"
-              disabled={undoing}
-              onClick={handleUndo}
-              title="Undo: Remove item from cart"
-            >
-              <RotateCcw size={12} className={undoing ? 'animate-spin' : ''} />
-              <span>{undoing ? 'Undoing' : 'Undo'}</span>
-            </button>
-          </div>
+            {undoing ? 'Taking back...' : 'Added • Undo'}
+          </Button>
         ) : (
           <Button
             variant={isOutOfStock ? 'outline' : 'primary'}
@@ -149,7 +138,7 @@ const ProductCard = ({ product }) => {
             onClick={handleAddToCart}
             icon={ShoppingBag}
           >
-            {isOutOfStock ? 'Out of Stock' : 'Add to Bag'}
+            {isOutOfStock ? 'Out of Stock' : (adding ? 'Adding...' : 'Add to Bag')}
           </Button>
         )}
       </div>

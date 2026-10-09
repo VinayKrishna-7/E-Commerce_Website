@@ -6,7 +6,6 @@ import {
   ArrowLeft,
   Truck,
   RotateCcw,
-  Check,
   Package,
 } from 'lucide-react';
 import { productService } from '../services/productService';
@@ -204,25 +203,18 @@ const ProductDetailsPage = () => {
             )}
 
             {added ? (
-              <div style={{ display: 'flex', gap: 'var(--space-2)', flex: 1 }}>
-                <div
-                  className="btn btn-lg btn-added"
-                  style={{ flex: 1, pointerEvents: 'none' }}
-                >
-                  <Check size={18} />
-                  <span>Added to Bag</span>
-                </div>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  disabled={undoing}
-                  onClick={handleUndo}
-                  icon={RotateCcw}
-                  title="Undo: Remove item from cart"
-                >
-                  {undoing ? 'Undoing...' : 'Undo'}
-                </Button>
-              </div>
+              <Button
+                variant="secondary"
+                size="lg"
+                style={{ flex: 1 }}
+                className="btn-added"
+                disabled={undoing}
+                onClick={handleUndo}
+                icon={RotateCcw}
+                title="Click to take back / undo item from bag"
+              >
+                {undoing ? 'Taking back...' : 'Added to Bag • Undo'}
+              </Button>
             ) : (
               <Button
                 variant={isOutOfStock ? 'outline' : 'primary'}
@@ -232,7 +224,7 @@ const ProductDetailsPage = () => {
                 onClick={handleAddToCart}
                 icon={ShoppingBag}
               >
-                {isOutOfStock ? 'Sold Out' : `Add to Bag • ${formatCurrency(Number(product.price) * quantity)}`}
+                {isOutOfStock ? 'Sold Out' : (adding ? 'Adding...' : `Add to Bag • ${formatCurrency(Number(product.price) * quantity)}`)}
               </Button>
             )}
 
