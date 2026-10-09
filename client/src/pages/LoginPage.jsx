@@ -41,16 +41,6 @@ const LoginPage = () => {
     }
   };
 
-  const handleFillDemo = (type) => {
-    if (type === 'admin') {
-      setEmail('admin@shopease.com');
-      setPassword('Admin@12345');
-    } else {
-      setEmail('customer@shopease.com');
-      setPassword('Customer@12345');
-    }
-  };
-
   return (
     <div className="container animate-fade-in">
       <div className="auth-wrapper">
@@ -108,53 +98,6 @@ const LoginPage = () => {
             Sign In
           </Button>
         </form>
-
-        {/* Discreet Test Accounts Hint */}
-        <div
-          style={{
-            marginTop: 'var(--space-6)',
-            padding: 'var(--space-3) var(--space-4)',
-            backgroundColor: 'var(--bg-subtle)',
-            borderRadius: 'var(--radius-sm)',
-            border: '1px solid var(--border-color)',
-            fontSize: 'var(--text-xs)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: 'var(--space-2)',
-          }}
-        >
-          <span style={{ color: 'var(--text-secondary)' }}>Quick demo login:</span>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
-            <button
-              type="button"
-              onClick={() => handleFillDemo('customer')}
-              style={{
-                fontSize: '11px',
-                color: 'var(--accent-primary)',
-                fontWeight: 600,
-                textDecoration: 'underline',
-                cursor: 'pointer',
-              }}
-            >
-              Customer
-            </button>
-            <span style={{ color: 'var(--text-muted)' }}>•</span>
-            <button
-              type="button"
-              onClick={() => handleFillDemo('admin')}
-              style={{
-                fontSize: '11px',
-                color: 'var(--accent-primary)',
-                fontWeight: 600,
-                textDecoration: 'underline',
-                cursor: 'pointer',
-              }}
-            >
-              Admin
-            </button>
-          </div>
-        </div>
 
         <div style={{ textAlign: 'center', marginTop: 'var(--space-6)', fontSize: 'var(--text-sm)', color: 'var(--text-secondary)' }}>
           Don't have an account?{' '}
