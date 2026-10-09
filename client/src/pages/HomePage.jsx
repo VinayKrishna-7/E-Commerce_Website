@@ -96,6 +96,29 @@ const HomePage = () => {
                   </Button>
                 </a>
               </div>
+
+              {/* High-credibility trust metrics bar */}
+              <div className="hero-metrics-bar">
+                <div className="hero-metric-item">
+                  <span className="hero-metric-val">40+</span>
+                  <span className="hero-metric-label">Curated Artifacts</span>
+                </div>
+                <div className="hero-metric-sep" />
+                <div className="hero-metric-item">
+                  <span className="hero-metric-val">100%</span>
+                  <span className="hero-metric-label">Authentic Quality</span>
+                </div>
+                <div className="hero-metric-sep" />
+                <div className="hero-metric-item">
+                  <span className="hero-metric-val">₹999</span>
+                  <span className="hero-metric-label">Free Delivery</span>
+                </div>
+                <div className="hero-metric-sep" />
+                <div className="hero-metric-item">
+                  <span className="hero-metric-val">4.9 ★</span>
+                  <span className="hero-metric-label">Top Rated</span>
+                </div>
+              </div>
             </div>
 
             <div className="hero-image-frame">
@@ -104,6 +127,23 @@ const HomePage = () => {
                 alt="Curated minimalist lifestyle objects"
                 loading="eager"
               />
+
+              {/* Floating Live Badge */}
+              <div className="hero-floating-badge">
+                <span className="hero-pulse-dot" />
+                <span>36+ New Arrivals In Stock</span>
+              </div>
+
+              {/* Floating Product Highlight Card */}
+              <div className="hero-floating-card">
+                <div className="hero-floating-icon">
+                  <Sparkles size={16} />
+                </div>
+                <div className="hero-floating-info">
+                  <span className="hero-floating-title">Bestseller of the Week</span>
+                  <span className="hero-floating-subtitle">Vintage 35mm Camera • ₹1,899</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

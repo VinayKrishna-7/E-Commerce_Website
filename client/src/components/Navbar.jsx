@@ -98,8 +98,11 @@ const Navbar = () => {
               </button>
 
               <Link to="/" className="navbar-brand">
-                <Logo size={28} />
-                <span>ShopEase</span>
+                <Logo size={32} />
+                <div className="navbar-brand-text">
+                  <span className="brand-title">ShopEase</span>
+                  <span className="brand-tag">STORE</span>
+                </div>
               </Link>
             </div>
 
@@ -279,8 +282,11 @@ const Navbar = () => {
           <div className="mobile-menu-content" onClick={(e) => e.stopPropagation()}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-6)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
-                <Logo size={24} />
-                <span style={{ fontWeight: 700 }}>ShopEase</span>
+                <Logo size={28} />
+                <div className="navbar-brand-text">
+                  <span className="brand-title" style={{ fontSize: 'var(--text-base)' }}>ShopEase</span>
+                  <span className="brand-tag">STORE</span>
+                </div>
               </div>
               <button
                 type="button"
