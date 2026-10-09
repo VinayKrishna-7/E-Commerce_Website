@@ -1,0 +1,25 @@
+{
+  "name": "shopease",
+  "version": "1.0.0",
+  "description": "ShopEase — Curated Full-Stack E-Commerce Website",
+  "scripts": {
+    "client": "npm --prefix client run dev",
+    "client:build": "npm --prefix client run build",
+    "server": "npm --prefix server run dev",
+    "server:start": "npm --prefix server run start",
+    "db:push": "npm --prefix server run prisma:push",
+    "db:seed": "npm --prefix server run prisma:seed",
+    "install:all": "npm install && npm --prefix client install && npm --prefix server install"
+  },
+  "keywords": [
+    "ecommerce",
+    "fullstack",
+    "react",
+    "vite",
+    "express",
+    "postgresql",
+    "prisma"
+  ],
+  "author": "ShopEase Team",
+  "license": "ISC"
+}
