@@ -78,7 +78,10 @@ export const CartProvider = ({ children }) => {
       try {
         const res = await cartService.addToCart(product.id, quantity);
         await fetchCart();
-        success(`Added "${product.name}" to your cart`);
+        success(`Added "${product.name}" to cart`, {
+          label: 'Undo',
+          onClick: () => undoAddToCart(product.id, quantity),
+        });
         return true;
       } catch (err) {
         toastError(err.message || 'Could not add to cart');
@@ -114,7 +117,10 @@ export const CartProvider = ({ children }) => {
       }
       saveGuestCart(updated);
       setItems(updated);
-      success(`Added "${product.name}" to your cart`);
+      success(`Added "${product.name}" to cart`, {
+        label: 'Undo',
+        onClick: () => undoAddToCart(product.id, quantity),
+      });
       return true;
     }
   };
@@ -165,6 +171,38 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  // Undo item addition to cart
+  const undoAddToCart = async (productId, qtyToRevert = 1) => {
+    let currentItems = items;
+    if (isAuthenticated) {
+      if (!currentItems.some((i) => i.product?.id === productId || i.productId === productId)) {
+        try {
+          const fresh = await cartService.getCart();
+          currentItems = fresh.items || [];
+          setItems(currentItems);
+        } catch {
+          // ignore
+        }
+      }
+    } else {
+      currentItems = getGuestCart();
+    }
+
+    const existing = currentItems.find(
+      (i) => (i.product?.id || i.productId) === productId
+    );
+    if (!existing) return false;
+
+    if (existing.quantity > qtyToRevert) {
+      await updateQuantity(existing.id, existing.quantity - qtyToRevert, existing.product?.stock);
+      success('Item removed from cart');
+      return true;
+    } else {
+      await removeFromCart(existing.id);
+      return true;
+    }
+  };
+
   // Clear cart
   const clearCart = async () => {
     if (isAuthenticated) {
@@ -201,6 +239,7 @@ export const CartProvider = ({ children }) => {
         shipping,
         grandTotal,
         addToCart,
+        undoAddToCart,
         updateQuantity,
         removeFromCart,
         clearCart,

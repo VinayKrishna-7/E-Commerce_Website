@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, ShoppingBag, Check } from 'lucide-react';
+import { Heart, ShoppingBag, Check, RotateCcw } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 import { formatCurrency } from '../utils/formatters';
@@ -9,11 +9,19 @@ import Button from './Button';
 const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80';
 
 const ProductCard = ({ product }) => {
-  const { addToCart } = useCart();
+  const { addToCart, undoAddToCart } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
   const [imgSrc, setImgSrc] = useState(product?.imageUrl || FALLBACK_IMAGE);
   const [adding, setAdding] = useState(false);
   const [added, setAdded] = useState(false);
+  const [undoing, setUndoing] = useState(false);
+  const addedTimerRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (addedTimerRef.current) clearTimeout(addedTimerRef.current);
+    };
+  }, []);
 
   if (!product) return null;
 
@@ -31,8 +39,23 @@ const ProductCard = ({ product }) => {
     setAdding(false);
     if (ok) {
       setAdded(true);
-      setTimeout(() => setAdded(false), 1800);
+      if (addedTimerRef.current) clearTimeout(addedTimerRef.current);
+      addedTimerRef.current = setTimeout(() => {
+        setAdded(false);
+      }, 5000);
     }
+  };
+
+  const handleUndo = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (undoing) return;
+
+    if (addedTimerRef.current) clearTimeout(addedTimerRef.current);
+    setUndoing(true);
+    await undoAddToCart(product.id, 1);
+    setUndoing(false);
+    setAdded(false);
   };
 
   const handleWishlistToggle = (e) => {
@@ -94,16 +117,41 @@ const ProductCard = ({ product }) => {
           )}
         </div>
 
-        <Button
-          variant={added ? 'secondary' : isOutOfStock ? 'outline' : 'primary'}
-          size="sm"
-          className={`product-card-btn ${added ? 'btn-added' : ''}`}
-          disabled={isOutOfStock || adding}
-          onClick={handleAddToCart}
-          icon={added ? Check : ShoppingBag}
-        >
-          {added ? 'Added to Bag' : isOutOfStock ? 'Out of Stock' : 'Add to Bag'}
-        </Button>
+        {added ? (
+          <div
+            className="product-card-added-group"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+          >
+            <div className="btn btn-sm btn-added added-pill">
+              <Check size={14} />
+              <span>Added</span>
+            </div>
+            <button
+              type="button"
+              className="btn btn-sm btn-outline undo-btn"
+              disabled={undoing}
+              onClick={handleUndo}
+              title="Undo: Remove item from cart"
+            >
+              <RotateCcw size={12} className={undoing ? 'animate-spin' : ''} />
+              <span>{undoing ? 'Undoing' : 'Undo'}</span>
+            </button>
+          </div>
+        ) : (
+          <Button
+            variant={isOutOfStock ? 'outline' : 'primary'}
+            size="sm"
+            className="product-card-btn"
+            disabled={isOutOfStock || adding}
+            onClick={handleAddToCart}
+            icon={ShoppingBag}
+          >
+            {isOutOfStock ? 'Out of Stock' : 'Add to Bag'}
+          </Button>
+        )}
       </div>
     </div>
   );

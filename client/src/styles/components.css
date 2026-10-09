@@ -513,6 +513,38 @@
   width: 100%;
 }
 
+.product-card-added-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.product-card-added-group .added-pill {
+  flex: 1;
+  pointer-events: none;
+  min-height: 34px;
+  font-size: var(--text-xs);
+  gap: 4px;
+}
+
+.product-card-added-group .undo-btn {
+  min-height: 34px;
+  padding: 0 10px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+  background-color: var(--bg-card);
+  gap: 4px;
+  transition: all var(--transition-fast);
+}
+
+.product-card-added-group .undo-btn:hover {
+  background-color: var(--bg-subtle);
+  border-color: var(--text-secondary);
+}
+
 /* --- Product Grid --- */
 .product-grid {
   display: grid;

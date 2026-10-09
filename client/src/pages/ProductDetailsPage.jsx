@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
   Heart,
@@ -21,7 +21,7 @@ import ProductGrid from '../components/ProductGrid';
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
-  const { addToCart } = useCart();
+  const { addToCart, undoAddToCart } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
 
   const [product, setProduct] = useState(null);
@@ -31,6 +31,14 @@ const ProductDetailsPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [adding, setAdding] = useState(false);
   const [added, setAdded] = useState(false);
+  const [undoing, setUndoing] = useState(false);
+  const addedTimerRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (addedTimerRef.current) clearTimeout(addedTimerRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -98,8 +106,20 @@ const ProductDetailsPage = () => {
     setAdding(false);
     if (ok) {
       setAdded(true);
-      setTimeout(() => setAdded(false), 2000);
+      if (addedTimerRef.current) clearTimeout(addedTimerRef.current);
+      addedTimerRef.current = setTimeout(() => {
+        setAdded(false);
+      }, 5000);
     }
+  };
+
+  const handleUndo = async () => {
+    if (undoing) return;
+    if (addedTimerRef.current) clearTimeout(addedTimerRef.current);
+    setUndoing(true);
+    await undoAddToCart(product.id, quantity);
+    setUndoing(false);
+    setAdded(false);
   };
 
   return (
@@ -183,16 +203,38 @@ const ProductDetailsPage = () => {
               />
             )}
 
-            <Button
-              variant={added ? 'secondary' : isOutOfStock ? 'outline' : 'primary'}
-              size="lg"
-              style={{ flex: 1 }}
-              disabled={isOutOfStock || adding}
-              onClick={handleAddToCart}
-              icon={added ? Check : ShoppingBag}
-            >
-              {added ? 'Added to Cart' : isOutOfStock ? 'Sold Out' : `Add to Bag • ${formatCurrency(Number(product.price) * quantity)}`}
-            </Button>
+            {added ? (
+              <div style={{ display: 'flex', gap: 'var(--space-2)', flex: 1 }}>
+                <div
+                  className="btn btn-lg btn-added"
+                  style={{ flex: 1, pointerEvents: 'none' }}
+                >
+                  <Check size={18} />
+                  <span>Added to Bag</span>
+                </div>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  disabled={undoing}
+                  onClick={handleUndo}
+                  icon={RotateCcw}
+                  title="Undo: Remove item from cart"
+                >
+                  {undoing ? 'Undoing...' : 'Undo'}
+                </Button>
+              </div>
+            ) : (
+              <Button
+                variant={isOutOfStock ? 'outline' : 'primary'}
+                size="lg"
+                style={{ flex: 1 }}
+                disabled={isOutOfStock || adding}
+                onClick={handleAddToCart}
+                icon={ShoppingBag}
+              >
+                {isOutOfStock ? 'Sold Out' : `Add to Bag • ${formatCurrency(Number(product.price) * quantity)}`}
+              </Button>
+            )}
 
             <button
               type="button"
