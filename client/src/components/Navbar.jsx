@@ -24,6 +24,22 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const currentCategory = new URLSearchParams(location.search).get('category');
+
+  const isLinkActive = (path, category = null) => {
+    if (path === '/') {
+      return location.pathname === '/' && !location.search;
+    }
+    if (path === '/shop') {
+      if (location.pathname !== '/shop') return false;
+      if (!category) {
+        return !currentCategory || currentCategory === 'All Products';
+      }
+      return currentCategory === category;
+    }
+    return location.pathname === path;
+  };
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -36,7 +52,7 @@ const Navbar = () => {
     setMobileMenuOpen(false);
     setUserDropdownOpen(false);
     setSearchOpen(false);
-  }, [location.pathname]);
+  }, [location.pathname, location.search]);
 
   // Close user dropdown on outside click
   useEffect(() => {
@@ -95,21 +111,30 @@ const Navbar = () => {
 
             {/* Center: Desktop Navigation Links */}
             <div className="navbar-links">
-              <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} end>
+              <Link to="/" className={`nav-link ${isLinkActive('/') ? 'active' : ''}`}>
                 Home
-              </NavLink>
-              <NavLink to="/shop" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+              </Link>
+              <Link to="/shop" className={`nav-link ${isLinkActive('/shop') ? 'active' : ''}`}>
                 Shop All
-              </NavLink>
-              <NavLink to="/shop?category=Audio%20%26%20Electronics" className="nav-link">
+              </Link>
+              <Link
+                to="/shop?category=Audio%20%26%20Electronics"
+                className={`nav-link ${isLinkActive('/shop', 'Audio & Electronics') ? 'active' : ''}`}
+              >
                 Audio & Tech
-              </NavLink>
-              <NavLink to="/shop?category=Apparel%20%26%20Footwear" className="nav-link">
+              </Link>
+              <Link
+                to="/shop?category=Apparel%20%26%20Footwear"
+                className={`nav-link ${isLinkActive('/shop', 'Apparel & Footwear') ? 'active' : ''}`}
+              >
                 Apparel
-              </NavLink>
-              <NavLink to="/shop?category=Home%20%26%20Living" className="nav-link">
+              </Link>
+              <Link
+                to="/shop?category=Home%20%26%20Living"
+                className={`nav-link ${isLinkActive('/shop', 'Home & Living') ? 'active' : ''}`}
+              >
                 Living
-              </NavLink>
+              </Link>
             </div>
 
             {/* Right: Actions */}
@@ -268,35 +293,47 @@ const Navbar = () => {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)', flex: 1 }}>
-              <NavLink to="/" className="nav-link" end>
+              <Link to="/" className={`nav-link ${isLinkActive('/') ? 'active' : ''}`}>
                 Home
-              </NavLink>
-              <NavLink to="/shop" className="nav-link">
+              </Link>
+              <Link to="/shop" className={`nav-link ${isLinkActive('/shop') ? 'active' : ''}`}>
                 Shop All Products
-              </NavLink>
-              <NavLink to="/shop?category=Audio%20%26%20Electronics" className="nav-link">
+              </Link>
+              <Link
+                to="/shop?category=Audio%20%26%20Electronics"
+                className={`nav-link ${isLinkActive('/shop', 'Audio & Electronics') ? 'active' : ''}`}
+              >
                 Audio & Electronics
-              </NavLink>
-              <NavLink to="/shop?category=Apparel%20%26%20Footwear" className="nav-link">
+              </Link>
+              <Link
+                to="/shop?category=Apparel%20%26%20Footwear"
+                className={`nav-link ${isLinkActive('/shop', 'Apparel & Footwear') ? 'active' : ''}`}
+              >
                 Apparel & Footwear
-              </NavLink>
-              <NavLink to="/shop?category=Home%20%26%20Living" className="nav-link">
+              </Link>
+              <Link
+                to="/shop?category=Home%20%26%20Living"
+                className={`nav-link ${isLinkActive('/shop', 'Home & Living') ? 'active' : ''}`}
+              >
                 Home & Living
-              </NavLink>
-              <NavLink to="/shop?category=Carry%20%26%20Accessories" className="nav-link">
+              </Link>
+              <Link
+                to="/shop?category=Carry%20%26%20Accessories"
+                className={`nav-link ${isLinkActive('/shop', 'Carry & Accessories') ? 'active' : ''}`}
+              >
                 Carry & Accessories
-              </NavLink>
+              </Link>
 
               <div style={{ height: '1px', backgroundColor: 'var(--border-color)', margin: 'var(--space-2) 0' }} />
 
               {isAuthenticated ? (
                 <>
-                  <NavLink to="/profile" className="nav-link">
+                  <Link to="/profile" className={`nav-link ${isLinkActive('/profile') ? 'active' : ''}`}>
                     My Account ({user?.name})
-                  </NavLink>
-                  <NavLink to="/orders" className="nav-link">
+                  </Link>
+                  <Link to="/orders" className={`nav-link ${isLinkActive('/orders') ? 'active' : ''}`}>
                     Order History
-                  </NavLink>
+                  </Link>
                   {isAdmin && (
                     <NavLink to="/admin" className="nav-link" style={{ color: 'var(--accent-primary)', fontWeight: 600 }}>
                       Admin Dashboard
