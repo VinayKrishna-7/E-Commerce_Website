@@ -4,98 +4,49 @@ import { ShoppingBag, ShieldCheck } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="footer-clean">
+    <footer className="footer-compact">
       <div className="container">
-        <div className="footer-grid">
-          {/* Brand Info */}
-          <div className="footer-brand">
-            <Link to="/" className="footer-logo">
-              <ShoppingBag size={20} className="footer-logo-icon" />
+        {/* Top Row: Brand & Inline Quick Navigation */}
+        <div className="footer-compact-top">
+          <div className="footer-compact-brand-wrap">
+            <Link to="/" className="footer-compact-brand">
+              <ShoppingBag size={18} className="footer-compact-icon" />
               <span>ShopEase</span>
             </Link>
-            <p className="footer-tagline">
-              Thoughtfully curated everyday essentials. Crafted for longevity, ease, and modern living.
-            </p>
+            <span className="footer-compact-divider">|</span>
+            <span className="footer-compact-desc">Curated everyday essentials</span>
           </div>
 
-          {/* Shop Column */}
-          <div className="footer-nav-group">
-            <h4 className="footer-heading">Shop</h4>
-            <ul className="footer-link-list">
-              <li>
-                <Link to="/shop">All Products</Link>
-              </li>
-              <li>
-                <Link to="/shop?category=Audio%20%26%20Electronics">Audio & Tech</Link>
-              </li>
-              <li>
-                <Link to="/shop?category=Apparel%20%26%20Footwear">Apparel</Link>
-              </li>
-              <li>
-                <Link to="/shop?category=Home%20%26%20Living">Home & Living</Link>
-              </li>
-              <li>
-                <Link to="/shop?category=Carry%20%26%20Accessories">Accessories</Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Account Column */}
-          <div className="footer-nav-group">
-            <h4 className="footer-heading">Account</h4>
-            <ul className="footer-link-list">
-              <li>
-                <Link to="/orders">Order History</Link>
-              </li>
-              <li>
-                <Link to="/cart">Shopping Bag</Link>
-              </li>
-              <li>
-                <Link to="/wishlist">Saved Wishlist</Link>
-              </li>
-              <li>
-                <Link to="/profile">My Profile</Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Help & Policies Column */}
-          <div className="footer-nav-group">
-            <h4 className="footer-heading">Customer Care</h4>
-            <ul className="footer-link-list">
-              <li>
-                <span className="footer-note">Free Delivery above ₹999</span>
-              </li>
-              <li>
-                <span className="footer-note">Cash on Delivery Available</span>
-              </li>
-              <li>
-                <span className="footer-note">30-Day Easy Returns</span>
-              </li>
-              <li>
-                <span className="footer-note">support@shopease.com</span>
-              </li>
-            </ul>
-          </div>
+          <nav className="footer-compact-nav" aria-label="Footer Navigation">
+            <Link to="/shop">Shop All</Link>
+            <Link to="/shop?category=Audio%20%26%20Electronics">Audio</Link>
+            <Link to="/shop?category=Apparel%20%26%20Footwear">Apparel</Link>
+            <Link to="/shop?category=Home%20%26%20Living">Home</Link>
+            <Link to="/orders">Orders</Link>
+            <Link to="/cart">Cart</Link>
+            <Link to="/wishlist">Wishlist</Link>
+          </nav>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="footer-bottom">
-          <p className="footer-copy">
+        {/* Bottom Row: Minimal Legal & Meta Bar */}
+        <div className="footer-compact-bottom">
+          <p className="footer-compact-copy">
             © {new Date().getFullYear()} ShopEase. All rights reserved.
           </p>
 
-          <div className="footer-meta">
-            <span className="footer-meta-tag">
-              <ShieldCheck size={14} />
-              <span>Secure SSL Checkout</span>
+          <div className="footer-compact-meta">
+            <span className="footer-meta-pill">
+              <ShieldCheck size={13} />
+              <span>Secure SSL</span>
             </span>
-            <span className="footer-meta-sep">•</span>
-            <span className="footer-meta-tag">INR (₹)</span>
-            <span className="footer-meta-sep">•</span>
-            <span className="footer-meta-link">Privacy Policy</span>
-            <span className="footer-meta-sep">•</span>
-            <span className="footer-meta-link">Terms of Service</span>
+            <span>•</span>
+            <span>Free Delivery &gt; ₹999</span>
+            <span>•</span>
+            <span>INR (₹)</span>
+            <span>•</span>
+            <span className="footer-meta-link">Privacy</span>
+            <span>•</span>
+            <span className="footer-meta-link">Terms</span>
           </div>
         </div>
       </div>
